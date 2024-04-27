@@ -83,32 +83,67 @@ public class MyLinkedList<E> implements MyList<E>{
 
     @Override
     public E getFirst() {
-        return null;
+        if (size == 0) {
+            throw new IndexOutOfBoundsException("List is empty");
+        }
+        return head.item;
     }
 
     @Override
     public E getLast() {
-        return null;
+        if (size == 0) {
+        throw new IndexOutOfBoundsException("List is empty");
+    }
+        return tail.item;
     }
 
     @Override
     public void remove(int index) {
-
+        checkIndex(index);
+        MyNode current = getNode(index);
+        if (current.prev == null) {
+            head = current.next;
+        } else {
+            current.prev.next = current.next;
+        }
+        if (current.next == null) {
+            tail = current.prev;
+        } else {
+            current.next.prev = current.prev;
+        }
+        size--;
     }
 
     @Override
     public void removeFirst() {
-
+        if (size == 0) {
+            throw new IndexOutOfBoundsException("List is empty");
+        }
+        head = head.next;
+        if (head == null) {
+            tail = null;
+        } else {
+            head.prev = null;
+        }
+        size--;
     }
 
     @Override
     public void removelast() {
-
+        if (size == 0) {
+            throw new IndexOutOfBoundsException("List is empty");
+        }
+        tail = tail.prev;
+        if (tail == null) {
+            head = null;
+        } else {
+            tail.next = null;
+        }
+        size--;
     }
 
     @Override
     public void sort() {
-
     }
 
     @Override
@@ -138,7 +173,7 @@ public class MyLinkedList<E> implements MyList<E>{
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
