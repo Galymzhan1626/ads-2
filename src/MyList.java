@@ -1,12 +1,12 @@
-public interface MyListInterface<T> extends Iterable<T>{
-        void add(T item);
-        void set(int index, T item);
-        void add(int index, T item);
-        void addFirst ( T item);
-        void addLast ( T item);
-        T get(int index);
-        T getFirst();
-        T getLast ();
+public interface MyList<E> extends Iterable<E>{
+        void add(E item);
+        void set(int index, E item);
+        void add(int index, E item);
+        void addFirst ( E item);
+        void addLast ( E item);
+        E get(int index);
+        E getFirst();
+        E getLast ();
         void remove (int index);
         void removeFirst();
         void removelast();

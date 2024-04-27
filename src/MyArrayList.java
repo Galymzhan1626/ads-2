@@ -2,7 +2,7 @@ import com.sun.security.jgss.GSSUtil;
 
 import java.util.Iterator;
 
-public class MyArrayList<T> implements MyListInterface{
+public class MyArrayList<T> implements MyList{
     public T[] arr = (T[]) new Object[5];
     private int size;
 
