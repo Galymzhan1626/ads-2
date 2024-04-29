@@ -148,27 +148,54 @@ public class MyLinkedList<E> implements MyList<E>{
 
     @Override
     public int indexOf(Object object) {
-        return 0;
+        int index = 0;
+        MyNode current = head;
+        while (current != null) {
+            if (current.item.equals(object)) {
+                return index;
+            }
+            index++;
+            current = current.next;
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object object) {
-        return 0;
+        int lastIndex = -1;
+        int index = 0;
+        MyNode current = head;
+        while (current != null) {
+            if (current.item.equals(object)) {
+                lastIndex = index;
+            }
+            index++;
+            current = current.next;
+        }
+        return lastIndex;
     }
 
     @Override
     public boolean exists(Object object) {
-        return false;
+        return indexOf(object) != -1;
     }
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] array = new Object[size];
+        MyNode current = head;
+        int index = 0;
+        while (current != null) {
+            array[index++] = current.item;
+            current = current.next;
+        }
+        return array;
     }
 
     @Override
     public void clear() {
-
+        head = null;
+        size = 0;
     }
 
     @Override

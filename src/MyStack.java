@@ -1,99 +1,42 @@
 import java.util.Iterator;
 
-public class MyStack<E> implements MyList<E>{
+public class MyStack<E>{
+    private static class Node<E> {
+        E data;
+        Node<E> next;
 
-    @Override
-    public void add(E item) {
-
+        public Node(E data) {
+            this.data = data;
+            this.next = null;
+        }
     }
 
-    @Override
-    public void set(int index, E item) {
-
+    private Node<E> top;
+    private int size;
+    public MyStack() {
+        this.top = null;
+        this.size = 0;
     }
 
-    @Override
-    public void add(int index, E item) {
-
+    public void push(E item) {
+        Node<E> newNode = new Node<>(item);
+        newNode.next = top;
+        top = newNode;
+        size++;
     }
-
-    @Override
-    public void addFirst(E item) {
-
+    public E pop() {
+        if (size==0) {
+            throw new IndexOutOfBoundsException("List is empty");
+        }
+        E poppedItem = top.data;
+        top = top.next;
+        size--;
+        return poppedItem;
     }
-
-    @Override
-    public void addLast(E item) {
-
+    public boolean isEmpty() {
+        return top == null;
     }
-
-    @Override
-    public E get(int index) {
-        return null;
-    }
-
-    @Override
-    public E getFirst() {
-        return null;
-    }
-
-    @Override
-    public E getLast() {
-        return null;
-    }
-
-    @Override
-    public void remove(int index) {
-
-    }
-
-    @Override
-    public void removeFirst() {
-
-    }
-
-    @Override
-    public void removelast() {
-
-    }
-
-    @Override
-    public void sort() {
-
-    }
-
-    @Override
-    public int indexOf(Object object) {
-        return 0;
-    }
-
-    @Override
-    public int lastIndexOf(Object object) {
-        return 0;
-    }
-
-    @Override
-    public boolean exists(Object object) {
-        return false;
-    }
-
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @Override
-    public void clear() {
-
-    }
-
-    @Override
     public int size() {
-        return 0;
-    }
-
-    @Override
-    public Iterator<E> iterator() {
-        return null;
+        return size;
     }
 }
