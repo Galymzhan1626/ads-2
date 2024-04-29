@@ -1,7 +1,7 @@
 import java.util.Iterator;
 
 public class MyStack<E>{
-    private static class Node<E> {
+    private class Node<E> {
         E data;
         Node<E> next;
 

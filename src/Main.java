@@ -13,6 +13,5 @@ public class Main {
         System.out.println(myList.get(1));
         System.out.println(myList.getLast());
         System.out.println(myList.indexOf(7));
-
     }
 }
